@@ -1,15 +1,29 @@
 <?php
 
+class DataBase {
 
-$dbServer = 'localhost';
-$dbUser = 'root';
-$dbPassword = '';
-$dbName = 'good_place';
+    private $dbServer;
+    private $dbUser;
+    private $dbPassword;
+    private $dbName;
 
-$mysqli = new mysqli($dbServer,$dbUser,$dbPassword,$dbName);
-$mysqli->set_charset("utf8");
+    public function connectDB() {
+        $dbServer = 'localhost';
+        $dbUser = 'root';
+        $dbPassword = '';
+        $dbName = 'good_place';
 
-if (mysqli_connect_errno()){
-    echo "Błąd połączenia z bazą danych!";
+        $mMysqli = new mysqli($dbServer, $dbUser, $dbPassword, $dbName);
+        $mMysqli->set_charset("utf8");
+
+        if (mysqli_connect_errno()) {
+            echo "Błąd połączenia z bazą danych!";
+        }
+        return $mMysqli;
+    }
+
+    public function prepare($text) {
+        $mMysqli->prepare($text);
+    }
+
 }
-
