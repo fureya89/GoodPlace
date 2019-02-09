@@ -74,88 +74,12 @@ if (isset($_POST['send'])) {
 
     <body>
 
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.php">Good Place</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="bootstrap-3.3.7/docs/examples/navbar/">Default</a></li>
-                        <li><a href="bootstrap-3.3.7/docs/examples/navbar-static-top/">Static top</a></li>
-                        <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
+        <!-- Header for for not logged in users -->
+        <?php require 'includes/header.php' ?>
 
-        <div class="container">
+        <!-- Main component for for not logged in users -->
+        <?php require 'includes/homeNotLogged.php' ?>
 
-            <!-- Main component for a primary marketing message or call to action -->
-            <div class="jumbotron">
-                <h1>Strona przykładowa</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod nulla ultricies, maximus dui quis, tincidunt erat. Donec dapibus dui ut odio vestibulum, sit amet faucibus dolor tristique. Vivamus porttitor luctus vehicula. Nam in lorem magna. Integer pharetra quis lorem tincidunt molestie. Morbi nec vehicula turpis. In tortor felis, vehicula consequat consectetur quis, vehicula malesuada sem. Ut sapien nisl, mattis at interdum ac, tempus in odio. Aenean urna mauris, sagittis quis volutpat at, sollicitudin nec ipsum. Phasellus leo dui, bibendum quis tempus nec, euismod sit amet tellus</p>
-                <p>Proin sodales sollicitudin risus, sed tristique orci accumsan in. Morbi ac finibus magna. Nunc quis ipsum at metus lobortis condimentum. Vivamus fringilla odio augue, quis rutrum tortor hendrerit vitae. In lorem sapien, suscipit a hendrerit ut, sollicitudin id neque. Duis consequat, magna et feugiat rutrum, tellus tortor pellentesque leo, quis luctus lectus diam eu sem. Etiam pellentesque, orci non tincidunt mattis, mi quam sollicitudin sapien, sit amet congue nisi nisl ac sem. Maecenas quis aliquet nunc. Curabitur suscipit varius tempor. Nunc cursus erat at gravida sodales.</p>
-            </div>
-
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                <?php
-                if ($isRegistrationCorrect) {
-                    echo 'Udało Ci się zarejestrować.<br />';
-                }
-                ?>
-                Login:<br>
-                <?php
-                if ($errorUsername != null) {
-                    echo $errorUsername . '<br />';
-                }
-                ?>
-                <input type="text" name="username" value="">
-                <br>
-                Email:<br>
-                <?php
-                if ($errorEmail != null) {
-                    echo $errorEmail . '<br />';
-                }
-                ?>
-                <input type="text" name="email" value="">
-                <br>
-                Hasło:<br>
-                <?php
-                if ($errorPassword != null) {
-                    echo $errorPassword . '<br />';
-                }
-                ?>           
-                <input type="text" name="password" value="">
-                <br><br>
-                <input type="submit" name="send" value="Zarejestruj">
-            </form> 
-
-        </div> <!-- /container -->
 
 
         <!-- Bootstrap core JavaScript
